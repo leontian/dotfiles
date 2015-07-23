@@ -56,3 +56,6 @@ fi
 
 # set ls colors to emulate default Linux ls color
 export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
+
+# keybindings
+bindkey '^R' history-incremental-search-backward

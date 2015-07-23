@@ -41,9 +41,9 @@ set -sg escape-time 0
 set -g base-index 1
 setw -g pane-base-index 1
 
-# set-option -g set-titles on
-# set-option -g set-titles-string "#T - #W"
-# set-window-option -g automatic-rename on
+set-option -g set-titles on
+set-option -g set-titles-string "#T - #W"
+set-window-option -g automatic-rename on
 
 ######################
 #### Key Bindings ####
