@@ -13,5 +13,6 @@ brew install nginx
 brew install git
 brew install tmux
 brew install zsh
+brew install reattach-to-user-namespace
 # brew install nvm
 brew install z
