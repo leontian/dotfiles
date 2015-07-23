@@ -1,0 +1,7 @@
+# this is specific to the location of the current version of git, installed by homebrew
+completion=/usr/local/Cellar/git/*/etc/bash_completion.d/git-completion.bash
+
+if test -f $completion; then
+    echo "OK"
+    source $completion
+fi
