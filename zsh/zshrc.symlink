@@ -54,4 +54,5 @@ if hash brew 2>/dev/null; then
     source `brew --prefix`/etc/profile.d/z.sh
 fi
 
-
+# set ls colors to emulate default Linux ls color
+export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
