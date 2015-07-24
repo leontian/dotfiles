@@ -1,5 +1,6 @@
 export DOTFILES=$HOME/.dotfiles
 export ZSH=$DOTFILES/zsh
+fpath=(/usr/local/share/zsh-completions $fpath)
 
 # define the code directory
 # if [[ -d ~/code ]]; then
@@ -20,7 +21,6 @@ compinit
 
 for config ($ZSH/**/*completion.sh) source $config
 
-fpath=(/usr/local/share/zsh-completions $fpath)
 
 export EDITOR='vim'
 
