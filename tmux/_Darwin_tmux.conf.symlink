@@ -1,0 +1,4 @@
+set -g default-command "reattach-to-user-namespace -l zsh"
+tm_spotify="#[fg=$tm_color_music]#(osascript ~/.dotfiles/applescripts/spotify.scpt)"
+tm_itunes="#[fg=$tm_color_music]#(osascript ~/.dotfiles/applescripts/itunes.scpt)"
+set -g status-right $tm_itunes' '$tm_spotify' '$tm_date' '$tm_host
