@@ -45,7 +45,7 @@ needs_push() {
   then
     echo ""
   else
-    echo "%{$fg_bold[magenta]%}☁%f "
+    echo "%{$fg_bold[magenta]%}☁%f%b "
   fi
 }
 
@@ -55,7 +55,7 @@ suspended_jobs() {
     if [[ $sj == "" ]]; then
         echo ""
     else
-        echo "%{$FG[208]%}✱%f"
+        echo "%{$FG[208]%}✱%f%b "
     fi
 }
 
