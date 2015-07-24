@@ -16,3 +16,4 @@ brew install zsh
 brew install reattach-to-user-namespace
 # brew install nvm
 brew install z
+brew install zsh-completions

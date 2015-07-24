@@ -20,6 +20,8 @@ compinit
 
 for config ($ZSH/**/*completion.sh) source $config
 
+fpath=(/usr/local/share/zsh-completions $fpath)
+
 export EDITOR='vim'
 
 # add /usr/local/bin
