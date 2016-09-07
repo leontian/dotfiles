@@ -11,9 +11,9 @@ set -g history-limit 20000
 # set -g renumber-windows on
 
 # unbind default prefix and set it to Ctrl+a
-# unbind C-b
-# set -g prefix C-a
-# bind C-a send-prefix
+unbind C-b
+set -g prefix C-a
+bind C-a send-prefix
 
 # for nested tmux sessions
 # bind-key a send-prefix
@@ -65,19 +65,19 @@ bind - split-window -v -c "#{pane_current_path}"
 # bind y setw synchronize-panes
 
 # pane movement shortcuts
-# bind h select-pane -L
-# bind j select-pane -D
-# bind k select-pane -U
-# bind l select-pane -R
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
 
 # bind -r C-h select-window -t :-
 # bind -r C-l select-window -t :+
 
 # Resize pane shortcuts
-# bind -r H resize-pane -L 10
-# bind -r J resize-pane -D 10
-# bind -r K resize-pane -U 10
-# bind -r L resize-pane -R 10
+bind -r H resize-pane -L 10
+bind -r J resize-pane -D 10
+bind -r K resize-pane -U 10
+bind -r L resize-pane -R 10
 
 # enable mouse support for switching panes/windows
 # NOTE: This breaks selecting/copying text on OSX
