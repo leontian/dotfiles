@@ -1,194 +1,148 @@
-" ----------------------------------------------------------------------------
-"   Plug
-" ----------------------------------------------------------------------------
+set nocompatible              " be iMproved, required
+filetype off                  " required
 
-" Install vim-plug if we don't already have it
-if empty(glob("~/.vim/autoload/plug.vim"))
-    " Ensure all needed directories exist  (Thanks @kapadiamush)
-    execute 'mkdir -p ~/.vim/plugged'
-    execute 'mkdir -p ~/.vim/autoload'
-    " Download the actual plugin manager
-    execute '!curl -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
-endif
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-call plug#begin('~/.vim/plugged')
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
 
-" Colorschemes
-" Plug 'captbaritone/molokai'
-" Plug 'chriskempson/vim-tomorrow-theme'
-Plug 'altercation/vim-colors-solarized'
-" Plug 'fxn/vim-monochrome'
-" Plug 'chriskempson/base16-vim'
-" Plug 'NLKNguyen/papercolor-theme'
+" git
+Plugin 'tpope/vim-git'
+Plugin 'tpope/vim-fugitive'
+" gitgutter: show git diff in file, ]c [c to move around changed parts
+Plugin 'airblade/vim-gitgutter'
 
-" Syntax
-Plug 'tpope/vim-git', { 'for': 'git' }
-Plug 'cakebaker/scss-syntax.vim', { 'for': 'scss' }
-Plug 'xsbeats/vim-blade', { 'for': 'blade' }
-Plug 'qrps/lilypond-vim', { 'for': 'lilypond' }
-Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
+" commenting
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-surround'
 
-" Completion
-Plug 'mattn/emmet-vim', { 'for': 'html' }
+" cpp
+Plugin 'octol/vim-cpp-enhanced-highlight'
+Plugin 'vim-scripts/ctags.vim'
+Plugin 'vim-scripts/AutoComplPop'
+Plugin 'vim-scripts/omnicppcomplete'
+Plugin 'fholgado/minibufexpl.vim'
 
-" Make % match xml tags
-Plug 'edsono/vim-matchit', { 'for': ['html', 'xml'] }
-
-" Make tab handle all completions
-Plug 'ervandew/supertab'
-
-" Syntastic: Code linting errors
-Plug 'scrooloose/syntastic', { 'for': ['php', 'python', 'javascript', 'css'] }
-
-" Pairs of handy bracket mappings
-Plug 'tpope/vim-unimpaired'
-
-" Fancy statusline
-Plug 'bling/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+" bracket
+Plugin 'tpope/vim-unimpaired'
 
 " Fuzzy file opener
-" Plug 'kien/ctrlp.vim' <-- Not maintained any more
-Plug 'ctrlpvim/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 
-" Open from quick-fix-list in new split
-Plug 'yssl/QFEnter'
+" good looking
+Plugin 'altercation/vim-colors-solarized'
 
-Plug 'rking/ag.vim'
-Plug 'Chun-Yang/vim-action-ag'
 
-" Rename files from within vim
-Plug 'tpope/vim-eunuch'
+Plugin 'luochen1990/rainbow'
 
-" Make commenting easier
-Plug 'tpope/vim-commentary'
-
-" Adjust 'shiftwidth' and 'expandtab' heuristically based on the current file
-Plug 'tpope/vim-sleuth'
-
-" CamelCase motions through words
-Plug 'bkad/CamelCaseMotion'
-
-" Split and join lines of code intelligently
-Plug 'AndrewRadev/splitjoin.vim'
-
-Plug 'gcmt/taboo.vim'
-
-Plug 'vim-scripts/CursorLineCurrentWindow'
-
-Plug 'ternjs/tern_for_vim'
-
-" Split navigation that works with tmux
-Plug 'christoomey/vim-tmux-navigator'
-
-" Change brackets and quotes
-Plug 'tpope/vim-surround'
-" Make vim-surround repeatable with .
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-abolish'
-
-" Custom motions
-
-" Indent object
-Plug 'michaeljsmith/vim-indent-object'
-" Camel Case object
-Plug 'bkad/CamelCaseMotion'
-" Argumetn object
-Plug 'vim-scripts/argtextobj.vim'
-
-" Fugitive: Git from within Vim
-Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
-
-Plug 'airblade/vim-gitgutter'
-
-" Run Python tests in tmux splits
-" Plug 'captbaritone/projects/vim-vigilant', { 'for': 'python' }
-Plug '~/projects/vim-vigilant', { 'for': 'python' }
-Plug 'benmills/vimux', { 'for': ['python', 'javascript'] }
-
-Plug 'Valloric/YouCompleteMe'
-" Python completion and tag navigation
-Plug 'davidhalter/jedi-vim', { 'for': 'python' }
-
-Plug 'FooSoft/vim-argwrap'
+" Fancy statusline
+Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 " Take notes and keep todo lists in vim
-Plug 'vimwiki/vimwiki'
+Plugin 'vimwiki/vimwiki'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
 
-" Find the class/method based on cursor position
-"Plug 'vim-scripts/pythonhelper'
-
-" 'Vastly improved Javascript indentation and syntax support in Vim'
-Plug 'pangloss/vim-javascript'
-
-Plug 'reedes/vim-pencil'
-
-" Visualize undo tree
-Plug 'mbbill/undotree'
-
-Plug 'parkr/vim-jekyll'
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
 
 
-Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
+"Non-Plugin Stuff
 
-Plug 'mileszs/ack.vim'
-Plug 'garbas/vim-snipmate'
-Plug 'Raimondi/delimitMate'
-Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'tomtom/tlib_vim'
-
-Plug 'ap/vim-css-color'
-
-" Other plugins require curl
-if executable("curl")
-
-    " Webapi: Dependency of Gist-vim
-    Plug 'mattn/webapi-vim'
-
-    " Gist: Post text to gist.github
-    Plug 'mattn/gist-vim'
-endif
-
-filetype plugin indent on                   " required!
-call plug#end()
-
-
-
-filetype plugin indent on
-"for vimwiki"
-filetype plugin on
-set nocompatible
-
-" Enable syntax highlighting
-syntax on
-" tab settings for python
-set tabstop=2
-set expandtab
-set softtabstop=2
-" set autoindent
-set ruler
-set number
-set relativenumber
 " colorscheme
 set background=dark
 colorscheme solarized
-
-let g:tex_flavor='latex'
-
-" set clipboard=unnamed
-
-" airline options
 let g:airline_theme='solarized'
-let g:airline_powerline_fonts = 1
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
+
+" Enable syntax highlighting
+syntax on
+
+let g:cpp_class_scope_highlight=1           " highlight class scope
+" let g:cpp_member_variable_highlight=1       " highlight member variables
+let g:cpp_experimental_template_highlight=0 " highlighting of template functions(experimental)
+" tab settings 
+set tabstop=4
+set expandtab
+set softtabstop=4
+
+" set autoindent
+set ruler
+set number
+" set relativenumber
+set cursorline
+set hlsearch
+set ic
+
 set laststatus=2
 
 " make backspace work
 set backspace=indent,eol,start
 
-" web development
-au BufNewFile,BufRead *.ejs set filetype=html
-let g:ycm_disable_for_files_larger_than_kb = 2000
+set tags=./TAGS;
+
+" cscope settings
+
+if has('cscope')
+  set cscopetag cscopeverbose
+
+  if has('quickfix')
+    set cscopequickfix=s-,c-,d-,i-,t-,e-
+  endif
+
+  cnoreabbrev csa cs add
+  cnoreabbrev csf cs find f
+  cnoreabbrev csk cs kill
+  cnoreabbrev csr cs reset
+  cnoreabbrev css cs show
+  cnoreabbrev csh cs help
+
+  " command -nargs=0 Cscope cs add ~/cscope/cscope.out
+endif
+let g:solarized_bold = 1
+
+
+" close preview window after a completion - omnicppcomplete
+autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+
+let g:miniBufExplUseSingleClick = 1
+let g:miniBufExplStatusLineText = "" 
+
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlPBuffer'
+let  g:gitgutter_max_signs = 10000
+
+" rainbow
+let g:rainbow_active = 1
+
+let g:rainbow_conf = {
+\	'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
+\	'ctermfgs': ['darkblue', 'darkgreen','red', 'darkcyan', 'darkmagenta'],
+\	'operators': '_,_',
+\	'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
+\	'separately': {
+\		'*': {},
+\		'tex': {
+\			'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/'],
+\		},
+\		'lisp': {
+\			'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick', 'darkorchid3'],
+\		},
+\		'vim': {
+\			'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/', 'start=/{/ end=/}/ fold', 'start=/(/ end=/)/ containedin=vimFuncBody', 'start=/\[/ end=/\]/ containedin=vimFuncBody', 'start=/{/ end=/}/ fold containedin=vimFuncBody'],
+\		},
+\		'html': {
+\			'parentheses': ['start=/\v\<((area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)[ >])@!\z([-_:a-zA-Z0-9]+)(\s+[-_:a-zA-Z0-9]+(\=("[^"]*"|'."'".'[^'."'".']*'."'".'|[^ '."'".'"><=`]*))?)*\>/ end=#</\z1># fold'],
+\		},
+\		'css': 0,
+\	}
+\}
+map <F2> :copen<CR>
+map <F5> :cn<CR>
+map <F6> :cp<CR>
+" highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+" match OverLength /\%81v.\+/
